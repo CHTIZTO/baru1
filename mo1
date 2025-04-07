@@ -1,0 +1,460 @@
+def polaular(angka):
+    if angka < 1:
+        print("tidak terdefiniskan")
+        return
+
+    sangka = 1
+    for i in range(1, angka + 1):
+        if i % 2 == 1:
+            # Cetak angka naik
+            for j in range(angka):
+                print(f"{sangka:02d}", end=' ')
+                sangka += 1
+        else:
+            # Cetak angka turun
+            sangka += angka - 1
+            for j in range(angka):
+                print(f"{sangka:02d}", end=' ')
+                sangka -= 1
+            sangka += angka + 1
+        print()
+
+
+
+
+
+def capitalh(baris, kolom):
+    if baris < 3 or kolom < 3:
+        print("dimensi tidak sesuai")
+        return
+    elif baris % 2 == 0 :
+        print("dimensi tidak sesuai")
+        return 
+    for i in range(baris):
+        for j in range(kolom):
+            if j == 0 or j == kolom - 1 or i == baris // 2:
+                print('#', end='')
+            else:
+                print(' ', end='')  
+        print()  
+
+capitalh(5, 4)  
+capitalh(11, 3)  
+capitalh(4,3)
+
+
+
+
+
+def is_prime(bilangan):
+    if bilangan < 2:
+        return "bukan prima"
+    for i in range(2, int(bilangan**0.5) + 1):
+        if bilangan % i == 0:
+            return "bukan prima"
+    return "prima"
+
+# Contoh penggunaan
+print(is_prime(0))   # Output: bukan prima
+print(is_prime(100)) # Output: bukan prima
+print(is_prime(2))   # Output: prima
+print(is_prime(7))   # Output: prima
+print(is_prime(29))  # Output: prima
+print(is_prime(1))   # Output: bukan prima
+
+
+
+
+
+# Fungsi untuk mengecek apakah sebuah bilangan prima
+def adalah_prima(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+# Input batas atas
+batas = int(input("Tampilkan bilangan prima sampai: "))
+
+print(f"Bilangan prima dari 0 sampai {batas}:")
+for angka in range(2, batas + 1):
+    if adalah_prima(angka):
+        print(angka, end=" ")
+
+
+
+
+
+def print_h(height):
+    if height < 3:
+        print("Tinggi harus minimal 3 untuk membentuk huruf H.")
+        return
+
+    for i in range(height):  # Loop untuk baris
+        for j in range(height):  # Loop untuk kolom
+            # Cetak '#' jika di kolom pertama, kolom terakhir, atau baris tengah
+            if j == 0 or j == height - 1 or i == height // 2:
+                print('#', end='')
+            else:
+                print(' ', end='')  # Cetak spasi untuk bagian kosong
+        print()  # Pindah ke baris baru setelah selesai mencetak satu baris
+
+# Contoh penggunaan
+tinggi = 7  # Anda bisa mengubah tinggi sesuai keinginan
+print_h(tinggi)
+
+
+
+
+
+def fibonacci(n):
+    a, b = 0, 1
+    for i in range(n):
+        if i == 5:  # Lewati angka ke-6 (indeks 5)
+            continue  
+        print(a, end=" ")
+        a, b = b, a + b  
+
+# Contoh penggunaan
+fibonacci(10)
+
+
+
+
+
+def angka_ke_kata(angka):
+    hasil = ""
+    for digit in str(angka):
+        if digit == "0":
+            hasil += "nol "
+        elif digit == "1":
+            hasil += "satu "
+        elif digit == "2":
+            hasil += "dua "
+        elif digit == "3":
+            hasil += "tiga "
+        elif digit == "4":
+            hasil += "empat "
+        elif digit == "5":
+            hasil += "lima "
+        elif digit == "6":
+            hasil += "enam "
+        elif digit == "7":
+            hasil += "tujuh "
+        elif digit == "8":
+            hasil += "delapan "
+        elif digit == "9":
+            hasil += "sembilan "
+
+    return hasil.strip()  # Menghilangkan spasi di akhir
+
+# Contoh penggunaan
+angka = 3124
+hasil = angka_ke_kata(angka)
+print(hasil)
+
+
+
+
+
+def duel (hp1, damage1, hp2, damage2):
+    while True:
+        if hp1 <= 0 :
+            return "Monster"
+        elif hp2 <= 0 :
+            return "pahlawan"
+        hp2 -= damage1
+        if hp2 > 0:
+            hp1 -= damage2
+        
+print (duel(20,50,60,10))
+
+
+
+
+
+def tangga(n,kelipatan):
+    nums = kelipatan 
+    for i in range (1, n+1):
+        for j in range (1, i**2+1):
+            print (nums, end = "")
+            if j % i == 0:
+                print ()
+            nums += kelipatan
+        print()
+        
+tangga (4,15)
+
+
+
+
+
+def tanggakelipatan (n,kelipatan):
+    for i in range (1,n+1):
+        for j in range (i):
+            print ("*" * i)
+        print ()
+
+tanggakelipatan(4,2)
+
+
+
+
+
+def angka_gws(n, lompat, angka_gws1, angka_gws2, kata_gws1, kata_gws2, kata_spesial):
+    angka = 1
+    for i in range(1, n+1):
+        if angka % angka_gws1 == 0 and angka % angka_gws2 == 0:
+            print(kata_spesial, end= " ")
+        elif angka % angka_gws1 == 0:
+            print(kata_gws1, end= " ")
+        elif angka % angka_gws2 == 0:
+            print(kata_gws2, end= " ")
+        else:
+            print(angka, end=" ")
+        angka += lompat
+
+ 
+angka_gws(20, 2, 4, 5, "GWS1", "GWS2", "GWSSS")
+
+
+
+
+from typing import List
+
+def twoSum(self, nums: List[int], target: int) -> List[int]:
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            hasil = nums[i] + nums[j]
+            if hasil == target:
+                return [i, j]
+    return None
+
+print(twoSum([2,7,11,15],9))
+
+def twoSum(lst,trgt):
+    for i in range (len(lst)):
+        for j in range (len(lst)):
+            hasil = lst [i]+lst[j]
+            if hasil == trgt:
+                return hasil
+    return None
+
+print(twoSum([2,7,11,15],9))
+print(twoSum([3,2,4],6))
+
+def twoSum(lst, trgt):
+    for i in range(len(lst)):
+        for j in range(i + 1, len(lst)):  # Perhatikan: j mulai dari i + 1
+            if lst[i] + lst[j] == trgt:
+                return [i, j]
+    return None
+
+# Tes fungsi
+print(twoSum([2, 7, 11, 15], 9))   # Output: [0, 1]
+print(twoSum([3, 2, 4], 6))        # Output: [1, 2]
+
+
+
+
+
+def pola(panjang,lebar):
+    panjang,lebar = panjang % 10,lebar % 10
+    
+    midLebar = lebar//2+1
+    temp = panjang
+    maju = True
+    stop = 0
+    result = []
+    
+    for i in range(lebar//2+1):
+        temp_result = ""
+        for j in range(panjang):
+            temp_result += str(temp)+" "
+            if temp == midLebar:
+                maju = False
+            if maju == True:
+                temp -= 1
+            if maju == False:
+                temp += 1
+            if maju == False and temp == panjang-stop:
+                temp_result += str(temp)+" "
+                break
+        midLebar -= 1
+        temp -= 1
+        stop += 1
+        maju = True
+        result.append(temp_result)
+    result += result[:-1][::-1]
+
+    for i in result:
+        print(i)
+    
+    return ""
+
+print(pola(999999,99999))
+print(pola(7,7))
+print(pola(5,5))
+
+
+
+
+
+def konversi_waktu(jam: int, menit: int, format_24: bool = True) -> str:
+    if format_24:
+        # Format 24 jam
+        return f"{jam:02}:{menit:02}"
+    else:
+        # Format 12 jam
+        periode = "AM" if jam < 12 or jam == 24 else "PM"
+        jam_12 = jam % 12
+        jam_12 = 12 if jam_12 == 0 else jam_12
+        return f"{jam_12}:{menit:02} {periode}"
+
+print(konversi_waktu(14, 30, True))   # Output: 14:30
+print(konversi_waktu(14, 30, False))  # Output: 2:30 PM
+print(konversi_waktu(0, 5, False))    # Output: 12:05 AM
+print(konversi_waktu(12, 0, False))   # Output: 12:00 PM
+    
+
+
+
+
+def cek_segitiaga(sisi1, sisi2, sisi3):
+    if sisi1 == sisi2 == sisi3:
+        return "3 sisi sama"
+    elif sisi1 == sisi2 or sisi1 == sisi3 or sisi2 == sisi3:
+        return "2 sisi sama"
+    else:
+        return "Tidak ada yang sama"
+
+try:
+    # Meminta input dari pengguna
+    sisi1 = float(input("Masukkan sisi 1: "))
+    sisi2 = float(input("Masukkan sisi 2: "))
+    sisi3 = float(input("Masukkan sisi 3: "))
+
+    # Memastikan semua sisi positif
+    if sisi1 <= 0 or sisi2 <= 0 or sisi3 <= 0:
+        print("Panjang sisi harus lebih dari 0.")
+    else:
+        # Menampilkan hasil
+        print(cek_segitiaga(sisi1, sisi2, sisi3))
+
+except ValueError:
+    print("Input tidak valid. Harap masukkan angka yang benar.")
+
+
+
+
+
+def fibonacci_generator(n):
+    fib = [0, 1]
+    while len(fib) < n:
+        fib.append(fib[-1] + fib[-2])
+    return fib
+
+def fibonacci_pyramid(rows):
+    total_numbers = rows * (rows + 1) // 2  # Total angka yang dibutuhkan
+    fib_sequence = fibonacci_generator(total_numbers)
+
+    index = 0
+    for i in range(1, rows + 1):
+        row_numbers = fib_sequence[index:index+i]
+        print(' ' * (rows - i) * 2, end='')  # Biar rapi piramidanya
+        print(' '.join(str(num) for num in row_numbers))
+        index += i
+
+# Contoh penggunaan
+fibonacci_pyramid(5)
+
+
+
+def fibonacci_generator(n):
+    fib = [0, 1]
+    while len(fib) < n:
+        fib.append(fib[-1] + fib[-2])
+    return fib
+
+def fibonacci_inverted_right_aligned(rows):
+    total_numbers = rows * (rows + 1) // 2
+    fib_sequence = fibonacci_generator(total_numbers)
+
+    index = 0
+    triangle = []
+
+    # Bangun semua baris dulu
+    for i in range(1, rows + 1):
+        row_numbers = fib_sequence[index:index+i]
+        triangle.append(row_numbers)
+        index += i
+
+    # Cetak secara terbalik dan rata kanan
+    output_lines = []
+    for i in range(rows - 1, -1, -1):
+        row_numbers = triangle[i]
+        padding = ' ' * (rows - i - 1) * 2
+        line = padding + ' '.join(str(num) for num in row_numbers)
+        output_lines.append(line)
+
+    return '\n'.join(output_lines)
+
+# Contoh penggunaan
+print(fibonacci_inverted_right_aligned(5))
+
+
+
+def fibonacci_reset_each_row_centered_upright(rows):
+    def generate_fib(n):
+        fib = [1, 1]
+        while len(fib) < n:
+            fib.append(fib[-1] + fib[-2])
+        return fib[:n]
+
+    output_lines = []
+    max_width = rows * 6  # Estimasi lebar maksimum untuk center
+
+    for i in range(1, rows + 1):
+        row_fib = generate_fib(i)
+        line = ' '.join(str(num) for num in row_fib)
+        centered_line = line.center(max_width)
+        output_lines.append(centered_line)
+
+    return '\n'.join(output_lines)
+
+# Contoh penggunaan
+print(fibonacci_reset_each_row_centered_upright(5))
+
+
+
+def fibonacci_zigzag_centered(rows):
+    def generate_fib(n):
+        fib = [1, 1]
+        while len(fib) < n:
+            fib.append(fib[-1] + fib[-2])
+        return fib[:n]
+
+    output_lines = []
+    max_width = rows * 4  # Estimasi lebar untuk center
+    half = (rows + 1) // 2
+
+    # Naik sampai tengah
+    for i in range(1, half + 1):
+        row_fib = generate_fib(i)
+        line = ' '.join(str(num) for num in row_fib)
+        centered_line = line.center(max_width)
+        output_lines.append(centered_line)
+
+    # Turun setelah tengah
+    for i in range(half - 1, 0, -1):
+        row_fib = generate_fib(i)
+        line = ' '.join(str(num) for num in row_fib)
+        centered_line = line.center(max_width)
+        output_lines.append(centered_line)
+
+    return '\n'.join(output_lines)
+
+# Contoh penggunaan
+print(fibonacci_zigzag_centered(5))
